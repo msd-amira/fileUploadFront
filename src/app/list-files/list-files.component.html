@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="content-panel" style="padding: 20px;">
+    <form>
+      <input type="month" name ="dateSearch" [(ngModel)]="dateSearch" (change)="searchFile()">
+      <table class="table table-striped table-advance table-hover">
+        <thead>
+          <tr>
+            <th><i class="fa fa-bullhorn"></i>name</th>
+            <th><i class="fa fa-bookmark"></i>Consult</th>
+          </tr>
+        </thead>
+        <!-- item.date.getTime() >= fromDate.getTime() &&
+            item.date.getTime() <= toDate.getTime(); -->
+        <tbody>
+          <tr *ngFor="let file of listFiles |  paginate:{itemsPerPage: 6, currentPage:p}">
+            
+              <td *ngIf="now >= file.datePost">{{file.name}}</td>
+              <td *ngIf="now >= file.datePost">
+                <button (click)="viewFile(file.name)">Consult</button>
+              </td>
+          </tr>
+
+
+
+        </tbody>
+      </table>
+      <div class="row bg-white">
+        <div class="col-sm"></div>
+        <div class="col-sm" id="pagination">
+          <pagination-controls (pageChange)="p=$event" class="my-pagination "></pagination-controls>
+        </div>
+        <div class="col-sm"></div>
+      </div>
+    </form>
+  </div>
+</div>

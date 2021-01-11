@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="mb-3 row"></div>
+  <div class="form-panel">
+            
+    <form class="form-inline" role="form" >
+      
+  <div class="row">
+    <div class="mb-3 col-4">
+      <label for="formFileMultiple" class="form-label">Choose files</label>
+      <input name="files" [(ngModel)]="files" class="form-control" type="file" id="formFileMultiple" multiple (change)="selectFiles($event)">
+    </div>
+  </div>
+  <div class="row">
+    <div class="mb-3 col-4">
+      <label for="formDate" class="form-label">Choose the date of post</label>
+      <input name ="dateUpload" [(ngModel)]="dateUpload" class="form-control" type="datetime-local" id="formDate" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mb-3 col-1"></div>
+    <div class="mb-3 col-4">
+      <button type="submit" class="btn btn-outline-secondary" (click)="uploadFiles()">Upload</button>
+    </div>
+  </div>
+  </form>
+  </div>
+</div>
